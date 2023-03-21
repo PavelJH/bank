@@ -1,4 +1,4 @@
-package pages.bankManagerLogin.customers;
+package pages.bankManagerLogin.customersLogin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

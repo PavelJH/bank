@@ -17,7 +17,6 @@ public class PageBase {
     }
 
     public void click(WebElement element) {
-        wait.forVisibility(element);
         element.click();
     }
 
