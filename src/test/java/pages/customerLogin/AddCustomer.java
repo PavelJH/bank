@@ -7,9 +7,7 @@ import pages.PageBase;
 import pages.wait.Wait;
 
 public class AddCustomer extends PageBase {
-    public AddCustomer(WebDriver driver) {
-        super(driver);
-    }
+
 
     Wait wait;
 
@@ -24,6 +22,10 @@ public class AddCustomer extends PageBase {
     @FindBy(xpath = "//button[@type='submit']")
     protected WebElement addCustomerButton;
 
+    public AddCustomer(WebDriver driver) {
+        super(driver);
+    }
+
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(firstNameField);
@@ -33,9 +35,9 @@ public class AddCustomer extends PageBase {
     }
 
     public void fillAddCustomerForm(String firstName, String lastName, String postCode) {
-        fillFields(firstNameField, firstName);
-        fillFields(lastManeField, lastName);
-        fillFields(postCodeField, postCode);
+        fillField(firstNameField, firstName);
+        fillField(lastManeField, lastName);
+        fillField(postCodeField, postCode);
     }
 
     public void clickOnAddCustomerButton() {

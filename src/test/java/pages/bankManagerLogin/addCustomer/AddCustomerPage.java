@@ -39,5 +39,7 @@ public class AddCustomerPage extends PageBase {
     public void clickOnAddCustomerButton() {
         click(addCustomerButton);
     }
+
+
 }
 
