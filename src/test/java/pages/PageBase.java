@@ -4,12 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import pages.wait.Wait;
 
 public class PageBase {
     public WebDriver driver;
-
-    Wait wait;
 
     public PageBase(WebDriver driver) {
         this.driver = driver;
@@ -25,12 +22,21 @@ public class PageBase {
         select.selectByVisibleText(optionName);
     }
 
-    public void fillFields(WebElement field, String text) {// это параметры не аргументы
+    public void fillField(WebElement field, String text) {
         click(field);
         field.clear();
         field.sendKeys(text);
-
-
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+

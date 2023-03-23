@@ -24,8 +24,7 @@ public class CostumerLoginTest extends TestBase {
         customerPage.selectExistingUser(userName);
         customerPage.checkForVisibilityLoginButton();
         customerPage.clickOnLoginButton();
-
-
+        
         accountPage = new AccountPage(app.driver);
         accountPage.waitForLoading();
     }
