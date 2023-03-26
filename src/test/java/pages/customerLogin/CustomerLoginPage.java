@@ -38,4 +38,13 @@ public class CustomerLoginPage extends PageBase {
         wait = new Wait(driver);
         wait.forVisibility(loginButton);
     }
+
+    public void foundLoginButton() {
+
+        wait.forNoVisibility(loginButton);
+    }
+
+    public void selectNotExistingUser(String notExistingName) {
+        selectOption(notExistingName, userSelect);
+    }
 }

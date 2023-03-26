@@ -16,13 +16,14 @@ public class RegisterNewCustomerTest extends TestBase {
     BankManagerLoginPage bankManagerLoginPage;
     AddCustomerPage addCustomerPage;
     OpenAccountPage openAccountPage;
-    CustomerLoginPage customerLoginPage;
     AccountPage accountPage;
 
     Faker faker = new Faker();
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();
-    String postCode = "12345";
+    String postCode = faker.address().zipCode();
+    String firstnameAndLastname = firstName + " " + lastName;
+    String currencyValue = "Dollar";
 
     @Test
     public void registerNewCustomerOpenAccountAndCustomerLogin() {
@@ -48,8 +49,8 @@ public class RegisterNewCustomerTest extends TestBase {
 
         openAccountPage = new OpenAccountPage(app.driver);
         openAccountPage.waitForLoading();
-        openAccountPage.selectExistingUser(firstName + " " + lastName);
-        openAccountPage.selectCurrency("Dollar");
+        openAccountPage.selectExistingUser(firstnameAndLastname);
+        openAccountPage.selectCurrency(currencyValue);
         openAccountPage.clickOnProcessButton();
 
         String expectedRes = "Account created successfully with account Number :";
@@ -63,7 +64,8 @@ public class RegisterNewCustomerTest extends TestBase {
 
         CustomerLoginPage customerLoginPage = new CustomerLoginPage(app.driver);
         customerLoginPage.waitForLoading();
-        customerLoginPage.selectExistingUser(firstName + " " + lastName);
+        customerLoginPage.selectExistingUser(firstnameAndLastname);
+        customerLoginPage.checkForVisibilityLoginButton();
         customerLoginPage.clickOnLoginButton();
 
         accountPage = new AccountPage(app.driver);

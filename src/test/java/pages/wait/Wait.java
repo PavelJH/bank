@@ -30,6 +30,14 @@ public class Wait {
         }
     }
 
+    public void forNoVisibility(WebElement element) {
+        try {
+            setWait().until(ExpectedConditions.invisibilityOf(element));
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void forInvisibility(WebElement element) {
         try {
             setWait().until(ExpectedConditions.invisibilityOf(element));
