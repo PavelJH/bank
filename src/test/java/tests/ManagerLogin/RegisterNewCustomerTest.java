@@ -11,6 +11,8 @@ import pages.customerLogin.CustomerLoginPage;
 import pages.customerLogin.account.AccountPage;
 import tests.TestBase;
 
+import java.io.IOException;
+
 public class RegisterNewCustomerTest extends TestBase {
     HomePage homePage;
     BankManagerLoginPage bankManagerLoginPage;
@@ -26,9 +28,10 @@ public class RegisterNewCustomerTest extends TestBase {
     String currencyValue = "Dollar";
 
     @Test
-    public void registerNewCustomerOpenAccountAndCustomerLogin() {
+    public void registerNewCustomerOpenAccountAndCustomerLogin() throws IOException {
         homePage = new HomePage(app.driver);
         homePage.waitForLoading();
+        homePage.takeAndCompareScreenshot("homePage", null);
         homePage.clickOnBankManagerLoginButton();
 
         bankManagerLoginPage = new BankManagerLoginPage(app.driver);

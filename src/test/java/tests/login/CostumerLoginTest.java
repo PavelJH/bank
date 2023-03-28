@@ -6,6 +6,8 @@ import pages.customerLogin.CustomerLoginPage;
 import pages.customerLogin.account.AccountPage;
 import tests.TestBase;
 
+import java.io.IOException;
+
 public class CostumerLoginTest extends TestBase {
 
     HomePage homepage;
@@ -15,9 +17,10 @@ public class CostumerLoginTest extends TestBase {
     String userNameNoExist = "Pavlo Kelbas";
 
     @Test
-    public void loginExistingUser() {
+    public void loginExistingUser() throws IOException {
         homepage = new HomePage(app.driver);
         homepage.waitForLoading();
+        homepage.takeAndCompareScreenshot("homePage", null);
         homepage.clickOnCustomerLoginButton();
 
         customerPage = new CustomerLoginPage(app.driver);
